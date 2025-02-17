@@ -76,7 +76,8 @@ def train_autoencoder(config: TrainingConfig) -> Tuple[MLPAutoencoder, List[floa
             # Forward pass
             data_BWH = batch[0]
             output_BL = model(data_BWH)
-            loss = criterion(output_BL, data_BWH.view(data_BWH.shape[0], -1))
+            # loss = criterion(output_BL, data_BWH.view(data_BWH.shape[0], -1))
+            loss = criterion(output_BL)
 
             # Backward pass and optimize
             optimizer.zero_grad()
